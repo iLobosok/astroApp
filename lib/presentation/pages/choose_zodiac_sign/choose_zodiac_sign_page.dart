@@ -28,7 +28,7 @@ class _ChooseZodiacSignPageState extends State<ChooseZodiacSignPage> {
             width: double.infinity,
             child: Column(
               children: [
-                const SizedBox(height: 120),
+                const SizedBox(height: 100),
                 Text(
                   "Choose your zodiac sign:",
                   style: GoogleFonts.sen(
@@ -78,7 +78,7 @@ class _ChooseZodiacSignPageState extends State<ChooseZodiacSignPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 62),
+                const SizedBox(height: 32),
                 Text(
                   "Haven't find your sign?",
                   style: GoogleFonts.sen(
@@ -108,7 +108,7 @@ class _ChooseZodiacSignPageState extends State<ChooseZodiacSignPage> {
                   },
                   count: 4,
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 20),
               ],
             ),
           ),

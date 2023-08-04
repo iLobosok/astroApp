@@ -1,6 +1,41 @@
+import 'package:astro/presentation/pages/choose_zodiac_sign/create_account_dialog.dart';
 import 'package:astro/utils/enums/horoscope_signs.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+void _showDialog(BuildContext context, String initialValue) {
+  showDialog(
+    context: context,
+    builder: (BuildContext dialogContext) {
+      String enteredValue = initialValue;
+      return AlertDialog(
+        title: Text('Введите знак зодиака'),
+        content: TextField(
+          controller: TextEditingController(text: initialValue),
+          onChanged: (value) {
+            enteredValue = value;
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+            },
+            child: Text('Отмена'),
+          ),
+          TextButton(
+            onPressed: () {
+              // Handle the entered value here if needed
+              print('Введенное значение: $enteredValue');
+              Navigator.of(dialogContext).pop();
+            },
+            child: Text('Готово'),
+          ),
+        ],
+      );
+    },
+  );
+}
 
 class ZodiacSignsItem extends StatelessWidget {
   final String title;
@@ -29,6 +64,12 @@ class ZodiacSignsItem extends StatelessWidget {
           onTap: () {
             print(zodiacSigns[0].name);
             Navigator.of(context).pushReplacementNamed("/");
+            showDialog(
+              context: context,
+              builder: (context) => CustomDialogWidget(
+                zodiacSign: zodiacSigns[0],
+              ),
+            );
           },
           child: Image.asset(
             "assets/images/${zodiacSigns[0].name}.png",
@@ -43,7 +84,15 @@ class ZodiacSignsItem extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   print(zodiacSigns[1].name);
+
                   Navigator.of(context).pushReplacementNamed("/");
+                  showDialog(
+                    context: context,
+                    builder: (context) => CustomDialogWidget(
+                      zodiacSign: zodiacSigns[1],
+                     
+                    ),
+                  );
                 },
                 child: Image.asset(
                   "assets/images/${zodiacSigns[1].name}.png",
@@ -52,7 +101,15 @@ class ZodiacSignsItem extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   print(zodiacSigns[2].name);
+
                   Navigator.of(context).pushReplacementNamed("/");
+                  showDialog(
+                    context: context,
+                    builder: (context) => CustomDialogWidget(
+                      zodiacSign: zodiacSigns[2],
+                     
+                    ),
+                  );
                 },
                 child: Image.asset(
                   "assets/images/${zodiacSigns[2].name}.png",
