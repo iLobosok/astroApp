@@ -1,9 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 
-class SubscriptionProvider {
+class SubscriptionProvider extends ChangeNotifier {
   final RxSharedPreferences rxSharedPreferences;
 
-  const SubscriptionProvider(this.rxSharedPreferences);
+  SubscriptionProvider(this.rxSharedPreferences) {
+    getUser().then((value) {
+      userData = value;
+      notifyListeners();
+    });
+  }
+
+  late List<String>? userData;
 
   // check for subscription yes/no
   Future<bool> checkSubscription() async {

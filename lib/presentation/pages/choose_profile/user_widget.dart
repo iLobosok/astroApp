@@ -44,12 +44,22 @@ class UserWidgetClass extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                username,
-                style: GoogleFonts.sen(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
+              ShaderMask(
+                shaderCallback: (bounds) => const LinearGradient(
+                  colors: [
+                    Color(0xFFD69CFF),
+                    Color(0xFFB78AF6),
+                    Color(0xFF685BDE),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ).createShader(bounds),
+                child: Text(
+                  username,
+                  style: GoogleFonts.sen(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
                 ),
               ),
               const SizedBox(
@@ -57,21 +67,43 @@ class UserWidgetClass extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
-                    '$userage Age,',
-                    style: GoogleFonts.sen(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                  ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(
+                      colors: [
+                        Color(0xFFD69CFF),
+                        Color(0xFFB78AF6),
+                        Color(0xFF685BDE),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ).createShader(bounds),
+                    child: Text(
+                      '$userage Age,',
+                      style: GoogleFonts.sen(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 5),
-                  Text(
-                    userLocation,
-                    style: GoogleFonts.sen(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                  ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(
+                      colors: [
+                        Color(0xFFD69CFF),
+                        Color(0xFFB78AF6),
+                        Color(0xFF685BDE),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ).createShader(bounds),
+                    child: Text(
+                      userLocation,
+                      style: GoogleFonts.sen(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

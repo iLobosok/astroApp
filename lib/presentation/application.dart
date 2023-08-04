@@ -10,7 +10,7 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (context) =>
           SubscriptionProvider(RxSharedPreferences.getInstance()),
       child: MaterialApp(
